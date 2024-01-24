@@ -31,6 +31,7 @@ opt.signcolumn = "auto"
 opt.colorcolumn = "160"
 opt.cmdheight = 2
 
+opt.updatetime = 100
 
 opt.swapfile = false
 opt.undodir = vim.fn.expand("~/.vim/undodir")
