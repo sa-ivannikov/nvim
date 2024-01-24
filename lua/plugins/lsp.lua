@@ -17,6 +17,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+
+
 return {
     {
         "williamboman/mason.nvim",
@@ -50,8 +52,11 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
 
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
             -- Lua
             lspconfig.lua_ls.setup({
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         diagnostics = {
@@ -61,14 +66,6 @@ return {
                 },
             })
 
-            -- Python
-            -- lspconfig.ruff_lsp.setup({
-            --     init_options = {
-            --         settings = {
-            --             args = {},
-            --         }
-            --     }
-            -- })
             lspconfig.pylsp.setup({})
         end,
     },
