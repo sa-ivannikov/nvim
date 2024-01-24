@@ -39,6 +39,7 @@ return {
 				ensure_installed = {
 					"lua_ls",
 
+					"pyright",
 					"ruff_lsp",
 					-- "mypy",
 				},
@@ -64,20 +65,23 @@ return {
 				},
 			})
 
-			lspconfig.pylsp.setup({
-				settings = {
-					pylsp = {
-						plugins = {
-							pycodestyle = {
-								maxLineLength = 160,
-							},
-                            rope_autoimport = {
-                                enabled = true,
-                            }
-						},
-					},
-				},
-			})
+			-- lspconfig.pylsp.setup({
+			-- 	settings = {
+			-- 		pylsp = {
+			-- 			plugins = {
+			-- 				pycodestyle = {
+			-- 					maxLineLength = 160,
+			-- 				},
+   --                          rope_autoimport = {
+   --                              enabled = true,
+   --                          }
+			-- 			},
+			-- 		},
+			-- 	},
+			-- })
+            --
+            lspconfig.ruff_lsp.setup({})
+            lspconfig.pyright.setup({})
 		end,
 	},
 }
