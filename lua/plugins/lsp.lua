@@ -64,6 +64,24 @@ return {
 					},
 				},
 			})
+            lspconfig.pylsp.setup({
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            rope_autoimport = {
+                                enabled = true,
+                                memory =  false,
+                                -- completions = {
+                                --     enabled = True,
+                                -- }
+                            },
+                            jedi = {
+                                auto_import_modules = {"numpy", "pandas", "django"}
+                            }
+                        },
+                    },
+                },
+            })
 
 			-- lspconfig.pylsp.setup({
 			-- 	settings = {
@@ -74,14 +92,23 @@ return {
 			-- 				},
    --                          rope_autoimport = {
    --                              enabled = true,
-   --                          }
+   --                          },
+   --                          pyflakes = {
+   --                              enabled = false,
+   --                          },
+   --                          autopep8 = {
+   --                              enabled = false,
+   --                          },
+   --                          yapf = {
+   --                              enabled = false,
+   --                          },
 			-- 			},
 			-- 		},
 			-- 	},
 			-- })
-            --
-            lspconfig.ruff_lsp.setup({})
-            lspconfig.pyright.setup({})
+
+            -- lspconfig.ruff_lsp.setup({})
+            -- lspconfig.pyright.setup({})
 		end,
 	},
 }
