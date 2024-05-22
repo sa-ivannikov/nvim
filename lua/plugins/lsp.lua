@@ -82,6 +82,8 @@ return {
             --
             lspconfig.ruff_lsp.setup({})
             lspconfig.pyright.setup({})
+            -- GO
+            lspconfig.gopls.setup({})
 		end,
 	},
 }
