@@ -43,10 +43,9 @@ return {
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 			vim.keymap.set("n", "<leader>b", builtin.buffers, {})
 			vim.keymap.set("n", "<leader>g", builtin.grep_string, {})
+			vim.keymap.set("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, {})
+			vim.keymap.set("n", "re", builtin.lsp_references, {})
 			vim.keymap.set("v", "<leader>g", builtin.grep_string, {})
-			vim.keymap.set("n", "<leader>fs", function()
-				builtin.lsp_dynamic_workspace_symbols()
-			end, {})
 
 			telescope.load_extension("ui-select")
 		end,
