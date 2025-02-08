@@ -42,6 +42,9 @@ return {
                     "pyright",
                     -- "basedpyright",
                     "ruff",
+
+                    -- C
+                    "clangd",
                 },
             })
         end,
@@ -50,7 +53,6 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require("lspconfig")
-
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             -- Lua
@@ -71,9 +73,22 @@ return {
                     -- Use the current working directory as the root directory
                     return vim.fn.getcwd()
                 end,
+                settings = {
+                    python = {
+                        analysis = {
+                            -- autoSearchPaths = true,
+                            diagnosticMode = "openFilesOnly",
+                            useLibraryCodeForTypes = true,
+                            typeCheckingMode = "off"
+                        }
+                    }
+                }
             })
             -- GO
             lspconfig.gopls.setup({})
+
+            -- C
+            lspconfig.clangd.setup({})
         end,
     },
 }
